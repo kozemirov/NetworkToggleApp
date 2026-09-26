@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.com.pavelkozemirov.NetServices</string>
+		<string>group.com.pavelkozemirov.NetworkToggle</string>
 	</array>
 </dict>
 </plist>

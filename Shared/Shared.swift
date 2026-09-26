@@ -4,9 +4,9 @@ import Foundation
 // This file is part of all three targets: app, widget, and helper.
 
 enum Shared {
-    static let appGroup = "group.com.pavelkozemirov.NetServices"
-    static let helperMachService = "app.pavelkozemirov.NetServices.helper"
-    static let helperPlistName = "app.pavelkozemirov.NetServices.helper.plist"
+    static let appGroup = "group.com.pavelkozemirov.NetworkToggle"
+    static let helperMachService = "app.pavelkozemirov.NetworkToggle.helper"
+    static let helperPlistName = "app.pavelkozemirov.NetworkToggle.helper.plist"
     static let controlKind = "app.pavelkozemirov.NetworkToggle.ServiceControl"
     static let teamID = "T7VDL5R876"
 
@@ -57,7 +57,7 @@ enum SnapshotStore {
 
 // MARK: - XPC
 
-@objc(NetServicesHelperProtocol)
+@objc(NetworkToggleHelperProtocol)
 protocol HelperProtocol {
     func ping(reply: @escaping (String) -> Void)
     func setServiceEnabled(_ name: String, enabled: Bool, reply: @escaping (Bool, String) -> Void)

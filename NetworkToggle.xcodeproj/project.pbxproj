@@ -11,7 +11,7 @@
 		E984BF44306454DB00FD7AD6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E984BF43306454DB00FD7AD6 /* SwiftUI.framework */; };
 		E984BF51306454DC00FD7AD6 /* NetworkToggleControlsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E984BF3F306454DB00FD7AD6 /* NetworkToggleControlsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E984BF65306456BF00FD7AD6 /* NetworkToggleHelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = E984BF5B3064552B00FD7AD6 /* NetworkToggleHelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		E984BF70306457A000FD7AD6 /* app.pavelkozemirov.NetServices.helper.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = E984BF71306457A000FD7AD6 /* app.pavelkozemirov.NetServices.helper.plist */; };
+		E984BF70306457A000FD7AD6 /* app.pavelkozemirov.NetworkToggle.helper.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = E984BF71306457A000FD7AD6 /* app.pavelkozemirov.NetworkToggle.helper.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +62,7 @@
 			dstPath = Contents/Library/LaunchDaemons;
 			dstSubfolder = Wrapper;
 			files = (
-				E984BF70306457A000FD7AD6 /* app.pavelkozemirov.NetServices.helper.plist in CopyFiles */,
+				E984BF70306457A000FD7AD6 /* app.pavelkozemirov.NetworkToggle.helper.plist in CopyFiles */,
 			);
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -74,7 +74,7 @@
 		E984BF43306454DB00FD7AD6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		E984BF5B3064552B00FD7AD6 /* NetworkToggleHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NetworkToggleHelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		E984BF63306455DA00FD7AD6 /* NetworkToggleControlsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NetworkToggleControlsExtension.entitlements; sourceTree = "<group>"; };
-		E984BF71306457A000FD7AD6 /* app.pavelkozemirov.NetServices.helper.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = app.pavelkozemirov.NetServices.helper.plist; sourceTree = "<group>"; };
+		E984BF71306457A000FD7AD6 /* app.pavelkozemirov.NetworkToggle.helper.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = app.pavelkozemirov.NetworkToggle.helper.plist; sourceTree = "<group>"; };
 		E984BF80306459A100FD7AD6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,7 +142,7 @@
 				E984BF45306454DB00FD7AD6 /* NetworkToggleControls */,
 				E984BF5C3064552B00FD7AD6 /* NetworkToggleHelper */,
 				E984BF72306457A000FD7AD6 /* Shared */,
-				E984BF71306457A000FD7AD6 /* app.pavelkozemirov.NetServices.helper.plist */,
+				E984BF71306457A000FD7AD6 /* app.pavelkozemirov.NetworkToggle.helper.plist */,
 				E984BF63306455DA00FD7AD6 /* NetworkToggleControlsExtension.entitlements */,
 				E984BF80306459A100FD7AD6 /* README.md */,
 				E984BF40306454DB00FD7AD6 /* Frameworks */,
@@ -458,6 +458,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Network Toggle";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -492,6 +493,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Network Toggle";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -587,7 +589,7 @@
 				DEVELOPMENT_TEAM = T7VDL5R876;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = app.pavelkozemirov.NetServices.helper;
+				PRODUCT_BUNDLE_IDENTIFIER = app.pavelkozemirov.NetworkToggle.helper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
@@ -603,7 +605,7 @@
 				DEVELOPMENT_TEAM = T7VDL5R876;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = app.pavelkozemirov.NetServices.helper;
+				PRODUCT_BUNDLE_IDENTIFIER = app.pavelkozemirov.NetworkToggle.helper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;

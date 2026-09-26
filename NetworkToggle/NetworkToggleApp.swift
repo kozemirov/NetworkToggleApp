@@ -37,14 +37,13 @@ struct MenuContent: View {
 
         if vm.helperStatus != .enabled {
             Divider()
-            Button(vm.helperStatus == .requiresApproval ? "Open Settings…" : "Install Helper…") {
+            Button(vm.helperStatus == .requiresApproval ? "Open Settings… (required)" :
+                    "Install Helper… (required)"){
                 vm.registerHelper()
             }
-        }
-
-        if let e = vm.errorMessage {
-            Divider()
-            Text(e).foregroundColor(Color(nsColor: .tertiaryLabelColor))
+            if let e = vm.errorMessage {
+                Text(e).foregroundColor(Color(nsColor: .tertiaryLabelColor))
+            }
         }
 
         Divider()

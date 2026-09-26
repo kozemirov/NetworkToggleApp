@@ -3,12 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>app.pavelkozemirov.NetServices.helper</string>
+	<string>app.pavelkozemirov.NetworkToggle.helper</string>
 	<key>BundleProgram</key>
 	<string>Contents/MacOS/NetworkToggleHelper</string>
 	<key>MachServices</key>
 	<dict>
-		<key>app.pavelkozemirov.NetServices.helper</key>
+		<key>app.pavelkozemirov.NetworkToggle.helper</key>
 		<true/>
 	</dict>
 	<key>AssociatedBundleIdentifiers</key>

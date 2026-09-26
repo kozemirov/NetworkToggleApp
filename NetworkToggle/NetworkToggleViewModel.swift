@@ -19,6 +19,11 @@ final class NetworkToggleViewModel: ObservableObject {
 
     init() {
         helperStatus = helper.status
+        // Ask for the helper right away if it isn't approved yet, instead of
+        // waiting for the user to notice and click "Install Helper…".
+        if helperStatus != .enabled {
+            registerHelper()
+        }
         refresh()
         timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] _ in
             guard let self else { return }

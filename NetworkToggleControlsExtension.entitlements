@@ -4,11 +4,11 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.com.pavelkozemirov.NetServices</string>
+		<string>group.com.pavelkozemirov.NetworkToggle</string>
 	</array>
 	<key>com.apple.security.temporary-exception.mach-lookup.global-name</key>
 	<array>
-		<string>app.pavelkozemirov.NetServices.helper</string>
+		<string>app.pavelkozemirov.NetworkToggle.helper</string>
 	</array>
 </dict>
 </plist>
