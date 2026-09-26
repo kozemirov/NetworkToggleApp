@@ -2,8 +2,8 @@ import ServiceManagement
 import SwiftUI
 
 @main
-struct NetServices_ToggleApp: App {
-    @StateObject private var vm = NetViewModel()
+struct NetworkToggleApp: App {
+    @StateObject private var vm = NetworkToggleViewModel()
 
     var body: some Scene {
         MenuBarExtra {
@@ -21,7 +21,7 @@ struct NetServices_ToggleApp: App {
 }
 
 struct MenuContent: View {
-    @EnvironmentObject var vm: NetViewModel
+    @EnvironmentObject var vm: NetworkToggleViewModel
     @Environment(\.openWindow) private var openWindow
 
     var body: some View {

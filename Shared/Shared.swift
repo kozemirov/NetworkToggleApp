@@ -7,7 +7,7 @@ enum Shared {
     static let appGroup = "group.com.pavelkozemirov.NetServices"
     static let helperMachService = "app.pavelkozemirov.NetServices.helper"
     static let helperPlistName = "app.pavelkozemirov.NetServices.helper.plist"
-    static let controlKind = "app.pavelkozemirov.NetServices-Toggle.ServiceControl"
+    static let controlKind = "app.pavelkozemirov.NetworkToggle.ServiceControl"
     static let teamID = "T7VDL5R876"
 
     /// How long after enabling a service we still show "Connecting…" before

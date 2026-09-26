@@ -22,7 +22,7 @@ func networksetup(_ args: [String]) -> String {
     runTool("/usr/sbin/networksetup", args)
 }
 
-enum NetCollector {
+enum NetworkServiceCollector {
     static func collect() -> [NetService] {
         var services = parseOrder(networksetup(["-listnetworkserviceorder"]))
         for i in services.indices { enrich(&services[i]) }

@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		E984BF42306454DB00FD7AD6 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E984BF41306454DB00FD7AD6 /* WidgetKit.framework */; };
 		E984BF44306454DB00FD7AD6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E984BF43306454DB00FD7AD6 /* SwiftUI.framework */; };
-		E984BF51306454DC00FD7AD6 /* NetServicesControlsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E984BF3F306454DB00FD7AD6 /* NetServicesControlsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		E984BF65306456BF00FD7AD6 /* NetServicesHelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = E984BF5B3064552B00FD7AD6 /* NetServicesHelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		E984BF51306454DC00FD7AD6 /* NetworkToggleControlsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E984BF3F306454DB00FD7AD6 /* NetworkToggleControlsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E984BF65306456BF00FD7AD6 /* NetworkToggleHelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = E984BF5B3064552B00FD7AD6 /* NetworkToggleHelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		E984BF70306457A000FD7AD6 /* app.pavelkozemirov.NetServices.helper.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = E984BF71306457A000FD7AD6 /* app.pavelkozemirov.NetServices.helper.plist */; };
 /* End PBXBuildFile section */
 
@@ -20,14 +20,14 @@
 			containerPortal = E984BF253064547A00FD7AD6 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E984BF3E306454DB00FD7AD6;
-			remoteInfo = NetServicesControlsExtension;
+			remoteInfo = NetworkToggleControlsExtension;
 		};
 		E984BF74306457A000FD7AD6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E984BF253064547A00FD7AD6 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E984BF5A3064552B00FD7AD6;
-			remoteInfo = NetServicesHelper;
+			remoteInfo = NetworkToggleHelper;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -37,7 +37,7 @@
 			dstPath = "";
 			dstSubfolder = PlugIns;
 			files = (
-				E984BF51306454DC00FD7AD6 /* NetServicesControlsExtension.appex in Embed Foundation Extensions */,
+				E984BF51306454DC00FD7AD6 /* NetworkToggleControlsExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 		};
@@ -54,7 +54,7 @@
 			dstPath = "";
 			dstSubfolder = Executables;
 			files = (
-				E984BF65306456BF00FD7AD6 /* NetServicesHelper in CopyFiles */,
+				E984BF65306456BF00FD7AD6 /* NetworkToggleHelper in CopyFiles */,
 			);
 		};
 		E984BF66306456D700FD7AD6 /* CopyFiles */ = {
@@ -68,43 +68,43 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E984BF2D3064547A00FD7AD6 /* NetServices Toggle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NetServices Toggle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E984BF3F306454DB00FD7AD6 /* NetServicesControlsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NetServicesControlsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E984BF2D3064547A00FD7AD6 /* NetworkToggle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkToggle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E984BF3F306454DB00FD7AD6 /* NetworkToggleControlsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NetworkToggleControlsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		E984BF41306454DB00FD7AD6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		E984BF43306454DB00FD7AD6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		E984BF5B3064552B00FD7AD6 /* NetServicesHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NetServicesHelper; sourceTree = BUILT_PRODUCTS_DIR; };
-		E984BF63306455DA00FD7AD6 /* NetServicesControlsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NetServicesControlsExtension.entitlements; sourceTree = "<group>"; };
+		E984BF5B3064552B00FD7AD6 /* NetworkToggleHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NetworkToggleHelper; sourceTree = BUILT_PRODUCTS_DIR; };
+		E984BF63306455DA00FD7AD6 /* NetworkToggleControlsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NetworkToggleControlsExtension.entitlements; sourceTree = "<group>"; };
 		E984BF71306457A000FD7AD6 /* app.pavelkozemirov.NetServices.helper.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = app.pavelkozemirov.NetServices.helper.plist; sourceTree = "<group>"; };
 		E984BF80306459A100FD7AD6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		E984BF52306454DC00FD7AD6 /* Exceptions for "NetServicesControls" folder in "NetServicesControlsExtension" target */ = {
+		E984BF52306454DC00FD7AD6 /* Exceptions for "NetworkToggleControls" folder in "NetworkToggleControlsExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = E984BF3E306454DB00FD7AD6 /* NetServicesControlsExtension */;
+			target = E984BF3E306454DB00FD7AD6 /* NetworkToggleControlsExtension */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		E984BF2F3064547A00FD7AD6 /* NetServices Toggle */ = {
+		E984BF2F3064547A00FD7AD6 /* NetworkToggle */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "NetServices Toggle";
+			path = NetworkToggle;
 			sourceTree = "<group>";
 		};
-		E984BF45306454DB00FD7AD6 /* NetServicesControls */ = {
+		E984BF45306454DB00FD7AD6 /* NetworkToggleControls */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				E984BF52306454DC00FD7AD6 /* Exceptions for "NetServicesControls" folder in "NetServicesControlsExtension" target */,
+				E984BF52306454DC00FD7AD6 /* Exceptions for "NetworkToggleControls" folder in "NetworkToggleControlsExtension" target */,
 			);
-			path = NetServicesControls;
+			path = NetworkToggleControls;
 			sourceTree = "<group>";
 		};
-		E984BF5C3064552B00FD7AD6 /* NetServicesHelper */ = {
+		E984BF5C3064552B00FD7AD6 /* NetworkToggleHelper */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = NetServicesHelper;
+			path = NetworkToggleHelper;
 			sourceTree = "<group>";
 		};
 		E984BF72306457A000FD7AD6 /* Shared */ = {
@@ -138,12 +138,12 @@
 		E984BF243064547A00FD7AD6 = {
 			isa = PBXGroup;
 			children = (
-				E984BF2F3064547A00FD7AD6 /* NetServices Toggle */,
-				E984BF45306454DB00FD7AD6 /* NetServicesControls */,
-				E984BF5C3064552B00FD7AD6 /* NetServicesHelper */,
+				E984BF2F3064547A00FD7AD6 /* NetworkToggle */,
+				E984BF45306454DB00FD7AD6 /* NetworkToggleControls */,
+				E984BF5C3064552B00FD7AD6 /* NetworkToggleHelper */,
 				E984BF72306457A000FD7AD6 /* Shared */,
 				E984BF71306457A000FD7AD6 /* app.pavelkozemirov.NetServices.helper.plist */,
-				E984BF63306455DA00FD7AD6 /* NetServicesControlsExtension.entitlements */,
+				E984BF63306455DA00FD7AD6 /* NetworkToggleControlsExtension.entitlements */,
 				E984BF80306459A100FD7AD6 /* README.md */,
 				E984BF40306454DB00FD7AD6 /* Frameworks */,
 				E984BF2E3064547A00FD7AD6 /* Products */,
@@ -153,9 +153,9 @@
 		E984BF2E3064547A00FD7AD6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E984BF2D3064547A00FD7AD6 /* NetServices Toggle.app */,
-				E984BF3F306454DB00FD7AD6 /* NetServicesControlsExtension.appex */,
-				E984BF5B3064552B00FD7AD6 /* NetServicesHelper */,
+				E984BF2D3064547A00FD7AD6 /* NetworkToggle.app */,
+				E984BF3F306454DB00FD7AD6 /* NetworkToggleControlsExtension.appex */,
+				E984BF5B3064552B00FD7AD6 /* NetworkToggleHelper */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -172,9 +172,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E984BF2C3064547A00FD7AD6 /* NetServices Toggle */ = {
+		E984BF2C3064547A00FD7AD6 /* NetworkToggle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E984BF383064547B00FD7AD6 /* Build configuration list for PBXNativeTarget "NetServices Toggle" */;
+			buildConfigurationList = E984BF383064547B00FD7AD6 /* Build configuration list for PBXNativeTarget "NetworkToggle" */;
 			buildPhases = (
 				E984BF293064547A00FD7AD6 /* Sources */,
 				E984BF2A3064547A00FD7AD6 /* Frameworks */,
@@ -190,17 +190,17 @@
 				E984BF73306457A000FD7AD6 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				E984BF2F3064547A00FD7AD6 /* NetServices Toggle */,
+				E984BF2F3064547A00FD7AD6 /* NetworkToggle */,
 				E984BF72306457A000FD7AD6 /* Shared */,
 			);
-			name = "NetServices Toggle";
-			productName = "NetServices Toggle";
-			productReference = E984BF2D3064547A00FD7AD6 /* NetServices Toggle.app */;
+			name = NetworkToggle;
+			productName = NetworkToggle;
+			productReference = E984BF2D3064547A00FD7AD6 /* NetworkToggle.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E984BF3E306454DB00FD7AD6 /* NetServicesControlsExtension */ = {
+		E984BF3E306454DB00FD7AD6 /* NetworkToggleControlsExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E984BF53306454DC00FD7AD6 /* Build configuration list for PBXNativeTarget "NetServicesControlsExtension" */;
+			buildConfigurationList = E984BF53306454DC00FD7AD6 /* Build configuration list for PBXNativeTarget "NetworkToggleControlsExtension" */;
 			buildPhases = (
 				E984BF3B306454DB00FD7AD6 /* Sources */,
 				E984BF3C306454DB00FD7AD6 /* Frameworks */,
@@ -209,17 +209,17 @@
 			buildRules = (
 			);
 			fileSystemSynchronizedGroups = (
-				E984BF45306454DB00FD7AD6 /* NetServicesControls */,
+				E984BF45306454DB00FD7AD6 /* NetworkToggleControls */,
 				E984BF72306457A000FD7AD6 /* Shared */,
 			);
-			name = NetServicesControlsExtension;
-			productName = NetServicesControlsExtension;
-			productReference = E984BF3F306454DB00FD7AD6 /* NetServicesControlsExtension.appex */;
+			name = NetworkToggleControlsExtension;
+			productName = NetworkToggleControlsExtension;
+			productReference = E984BF3F306454DB00FD7AD6 /* NetworkToggleControlsExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		E984BF5A3064552B00FD7AD6 /* NetServicesHelper */ = {
+		E984BF5A3064552B00FD7AD6 /* NetworkToggleHelper */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E984BF5F3064552B00FD7AD6 /* Build configuration list for PBXNativeTarget "NetServicesHelper" */;
+			buildConfigurationList = E984BF5F3064552B00FD7AD6 /* Build configuration list for PBXNativeTarget "NetworkToggleHelper" */;
 			buildPhases = (
 				E984BF573064552B00FD7AD6 /* Sources */,
 				E984BF583064552B00FD7AD6 /* Frameworks */,
@@ -228,12 +228,12 @@
 			buildRules = (
 			);
 			fileSystemSynchronizedGroups = (
-				E984BF5C3064552B00FD7AD6 /* NetServicesHelper */,
+				E984BF5C3064552B00FD7AD6 /* NetworkToggleHelper */,
 				E984BF72306457A000FD7AD6 /* Shared */,
 			);
-			name = NetServicesHelper;
-			productName = NetServicesHelper;
-			productReference = E984BF5B3064552B00FD7AD6 /* NetServicesHelper */;
+			name = NetworkToggleHelper;
+			productName = NetworkToggleHelper;
+			productReference = E984BF5B3064552B00FD7AD6 /* NetworkToggleHelper */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -257,7 +257,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E984BF283064547A00FD7AD6 /* Build configuration list for PBXProject "NetServices Toggle" */;
+			buildConfigurationList = E984BF283064547A00FD7AD6 /* Build configuration list for PBXProject "NetworkToggle" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -271,9 +271,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E984BF2C3064547A00FD7AD6 /* NetServices Toggle */,
-				E984BF3E306454DB00FD7AD6 /* NetServicesControlsExtension */,
-				E984BF5A3064552B00FD7AD6 /* NetServicesHelper */,
+				E984BF2C3064547A00FD7AD6 /* NetworkToggle */,
+				E984BF3E306454DB00FD7AD6 /* NetworkToggleControlsExtension */,
+				E984BF5A3064552B00FD7AD6 /* NetworkToggleHelper */,
 			);
 		};
 /* End PBXProject section */
@@ -312,18 +312,18 @@
 /* Begin PBXTargetDependency section */
 		E984BF50306454DC00FD7AD6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E984BF3E306454DB00FD7AD6 /* NetServicesControlsExtension */;
+			target = E984BF3E306454DB00FD7AD6 /* NetworkToggleControlsExtension */;
 			targetProxy = E984BF4F306454DC00FD7AD6 /* PBXContainerItemProxy */;
 		};
 		E984BF73306457A000FD7AD6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E984BF5A3064552B00FD7AD6 /* NetServicesHelper */;
+			target = E984BF5A3064552B00FD7AD6 /* NetworkToggleHelper */;
 			targetProxy = E984BF74306457A000FD7AD6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		E984BF363064547B00FD7AD6 /* Debug configuration for PBXProject "NetServices Toggle" */ = {
+		E984BF363064547B00FD7AD6 /* Debug configuration for PBXProject "NetworkToggle" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -387,7 +387,7 @@
 			};
 			name = Debug;
 		};
-		E984BF373064547B00FD7AD6 /* Release configuration for PBXProject "NetServices Toggle" */ = {
+		E984BF373064547B00FD7AD6 /* Release configuration for PBXProject "NetworkToggle" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -443,12 +443,12 @@
 			};
 			name = Release;
 		};
-		E984BF393064547B00FD7AD6 /* Debug configuration for PBXNativeTarget "NetServices Toggle" */ = {
+		E984BF393064547B00FD7AD6 /* Debug configuration for PBXNativeTarget "NetworkToggle" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "NetServices Toggle/NetServices Toggle.entitlements";
+				CODE_SIGN_ENTITLEMENTS = NetworkToggle/NetworkToggle.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -465,7 +465,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "app.pavelkozemirov.NetServices-Toggle";
+				PRODUCT_BUNDLE_IDENTIFIER = app.pavelkozemirov.NetworkToggle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -477,12 +477,12 @@
 			};
 			name = Debug;
 		};
-		E984BF3A3064547B00FD7AD6 /* Release configuration for PBXNativeTarget "NetServices Toggle" */ = {
+		E984BF3A3064547B00FD7AD6 /* Release configuration for PBXNativeTarget "NetworkToggle" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "NetServices Toggle/NetServices Toggle.entitlements";
+				CODE_SIGN_ENTITLEMENTS = NetworkToggle/NetworkToggle.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -499,7 +499,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "app.pavelkozemirov.NetServices-Toggle";
+				PRODUCT_BUNDLE_IDENTIFIER = app.pavelkozemirov.NetworkToggle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -511,20 +511,20 @@
 			};
 			name = Release;
 		};
-		E984BF54306454DC00FD7AD6 /* Debug configuration for PBXNativeTarget "NetServicesControlsExtension" */ = {
+		E984BF54306454DC00FD7AD6 /* Debug configuration for PBXNativeTarget "NetworkToggleControlsExtension" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = NetServicesControlsExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = NetworkToggleControlsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T7VDL5R876;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NetServicesControls/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = NetServicesControls;
+				INFOPLIST_FILE = NetworkToggleControls/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NetworkToggleControls;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -533,7 +533,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "app.pavelkozemirov.NetServices-Toggle.NetServicesControls";
+				PRODUCT_BUNDLE_IDENTIFIER = app.pavelkozemirov.NetworkToggle.NetworkToggleControls;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SKIP_INSTALL = YES;
@@ -545,20 +545,20 @@
 			};
 			name = Debug;
 		};
-		E984BF55306454DC00FD7AD6 /* Release configuration for PBXNativeTarget "NetServicesControlsExtension" */ = {
+		E984BF55306454DC00FD7AD6 /* Release configuration for PBXNativeTarget "NetworkToggleControlsExtension" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = NetServicesControlsExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = NetworkToggleControlsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T7VDL5R876;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NetServicesControls/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = NetServicesControls;
+				INFOPLIST_FILE = NetworkToggleControls/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NetworkToggleControls;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -567,7 +567,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "app.pavelkozemirov.NetServices-Toggle.NetServicesControls";
+				PRODUCT_BUNDLE_IDENTIFIER = app.pavelkozemirov.NetworkToggle.NetworkToggleControls;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SKIP_INSTALL = YES;
@@ -579,7 +579,7 @@
 			};
 			name = Release;
 		};
-		E984BF603064552B00FD7AD6 /* Debug configuration for PBXNativeTarget "NetServicesHelper" */ = {
+		E984BF603064552B00FD7AD6 /* Debug configuration for PBXNativeTarget "NetworkToggleHelper" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -595,7 +595,7 @@
 			};
 			name = Debug;
 		};
-		E984BF613064552B00FD7AD6 /* Release configuration for PBXNativeTarget "NetServicesHelper" */ = {
+		E984BF613064552B00FD7AD6 /* Release configuration for PBXNativeTarget "NetworkToggleHelper" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -614,35 +614,35 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E984BF283064547A00FD7AD6 /* Build configuration list for PBXProject "NetServices Toggle" */ = {
+		E984BF283064547A00FD7AD6 /* Build configuration list for PBXProject "NetworkToggle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E984BF363064547B00FD7AD6 /* Debug configuration for PBXProject "NetServices Toggle" */,
-				E984BF373064547B00FD7AD6 /* Release configuration for PBXProject "NetServices Toggle" */,
+				E984BF363064547B00FD7AD6 /* Debug configuration for PBXProject "NetworkToggle" */,
+				E984BF373064547B00FD7AD6 /* Release configuration for PBXProject "NetworkToggle" */,
 			);
 			defaultConfigurationName = Release;
 		};
-		E984BF383064547B00FD7AD6 /* Build configuration list for PBXNativeTarget "NetServices Toggle" */ = {
+		E984BF383064547B00FD7AD6 /* Build configuration list for PBXNativeTarget "NetworkToggle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E984BF393064547B00FD7AD6 /* Debug configuration for PBXNativeTarget "NetServices Toggle" */,
-				E984BF3A3064547B00FD7AD6 /* Release configuration for PBXNativeTarget "NetServices Toggle" */,
+				E984BF393064547B00FD7AD6 /* Debug configuration for PBXNativeTarget "NetworkToggle" */,
+				E984BF3A3064547B00FD7AD6 /* Release configuration for PBXNativeTarget "NetworkToggle" */,
 			);
 			defaultConfigurationName = Release;
 		};
-		E984BF53306454DC00FD7AD6 /* Build configuration list for PBXNativeTarget "NetServicesControlsExtension" */ = {
+		E984BF53306454DC00FD7AD6 /* Build configuration list for PBXNativeTarget "NetworkToggleControlsExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E984BF54306454DC00FD7AD6 /* Debug configuration for PBXNativeTarget "NetServicesControlsExtension" */,
-				E984BF55306454DC00FD7AD6 /* Release configuration for PBXNativeTarget "NetServicesControlsExtension" */,
+				E984BF54306454DC00FD7AD6 /* Debug configuration for PBXNativeTarget "NetworkToggleControlsExtension" */,
+				E984BF55306454DC00FD7AD6 /* Release configuration for PBXNativeTarget "NetworkToggleControlsExtension" */,
 			);
 			defaultConfigurationName = Release;
 		};
-		E984BF5F3064552B00FD7AD6 /* Build configuration list for PBXNativeTarget "NetServicesHelper" */ = {
+		E984BF5F3064552B00FD7AD6 /* Build configuration list for PBXNativeTarget "NetworkToggleHelper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E984BF603064552B00FD7AD6 /* Debug configuration for PBXNativeTarget "NetServicesHelper" */,
-				E984BF613064552B00FD7AD6 /* Release configuration for PBXNativeTarget "NetServicesHelper" */,
+				E984BF603064552B00FD7AD6 /* Debug configuration for PBXNativeTarget "NetworkToggleHelper" */,
+				E984BF613064552B00FD7AD6 /* Release configuration for PBXNativeTarget "NetworkToggleHelper" */,
 			);
 			defaultConfigurationName = Release;
 		};

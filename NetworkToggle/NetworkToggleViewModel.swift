@@ -4,7 +4,7 @@ import ServiceManagement
 import WidgetKit
 
 @MainActor
-final class NetViewModel: ObservableObject {
+final class NetworkToggleViewModel: ObservableObject {
     @Published var services: [NetService] = []
     @Published var lastUpdate: Date?
     @Published var loading = false
@@ -44,7 +44,7 @@ final class NetViewModel: ObservableObject {
         if loading { return false }
         loading = true
         let collected = await Task.detached(priority: .userInitiated) {
-            NetCollector.collect()
+            NetworkServiceCollector.collect()
         }.value
 
         // The collector has no notion of "just enabled" — preserve each

@@ -2,7 +2,7 @@ import AppIntents
 import SwiftUI
 import WidgetKit
 
-struct NetServicesControlsControl: ControlWidget {
+struct NetworkToggleAppControl: ControlWidget {
     struct Value {
         var name: String
         var isOn: Bool

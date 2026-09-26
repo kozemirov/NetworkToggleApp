@@ -17,9 +17,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E984BF3E306454DB00FD7AD6"
-               BuildableName = "NetServicesControlsExtension.appex"
-               BlueprintName = "NetServicesControlsExtension"
-               ReferencedContainer = "container:NetServices Toggle.xcodeproj">
+               BuildableName = "NetworkToggleControlsExtension.appex"
+               BlueprintName = "NetworkToggleControlsExtension"
+               ReferencedContainer = "container:NetworkToggle.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,9 +31,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E984BF2C3064547A00FD7AD6"
-               BuildableName = "NetServices Toggle.app"
-               BlueprintName = "NetServices Toggle"
-               ReferencedContainer = "container:NetServices Toggle.xcodeproj">
+               BuildableName = "NetworkToggle.app"
+               BlueprintName = "NetworkToggle"
+               ReferencedContainer = "container:NetworkToggle.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -65,18 +65,18 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E984BF3E306454DB00FD7AD6"
-            BuildableName = "NetServicesControlsExtension.appex"
-            BlueprintName = "NetServicesControlsExtension"
-            ReferencedContainer = "container:NetServices Toggle.xcodeproj">
+            BuildableName = "NetworkToggleControlsExtension.appex"
+            BlueprintName = "NetworkToggleControlsExtension"
+            ReferencedContainer = "container:NetworkToggle.xcodeproj">
          </BuildableReference>
       </RemoteRunnable>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E984BF2C3064547A00FD7AD6"
-            BuildableName = "NetServices Toggle.app"
-            BlueprintName = "NetServices Toggle"
-            ReferencedContainer = "container:NetServices Toggle.xcodeproj">
+            BuildableName = "NetworkToggle.app"
+            BlueprintName = "NetworkToggle"
+            ReferencedContainer = "container:NetworkToggle.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <EnvironmentVariables>
@@ -110,9 +110,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E984BF2C3064547A00FD7AD6"
-            BuildableName = "NetServices Toggle.app"
-            BlueprintName = "NetServices Toggle"
-            ReferencedContainer = "container:NetServices Toggle.xcodeproj">
+            BuildableName = "NetworkToggle.app"
+            BlueprintName = "NetworkToggle"
+            ReferencedContainer = "container:NetworkToggle.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

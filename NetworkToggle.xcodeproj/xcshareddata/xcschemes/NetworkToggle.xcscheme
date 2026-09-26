@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E984BF2C3064547A00FD7AD6"
-               BuildableName = "NetServices Toggle.app"
-               BlueprintName = "NetServices Toggle"
-               ReferencedContainer = "container:NetServices Toggle.xcodeproj">
+               BuildableName = "NetworkToggle.app"
+               BlueprintName = "NetworkToggle"
+               ReferencedContainer = "container:NetworkToggle.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E984BF2C3064547A00FD7AD6"
-            BuildableName = "NetServices Toggle.app"
-            BlueprintName = "NetServices Toggle"
-            ReferencedContainer = "container:NetServices Toggle.xcodeproj">
+            BuildableName = "NetworkToggle.app"
+            BlueprintName = "NetworkToggle"
+            ReferencedContainer = "container:NetworkToggle.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -63,9 +63,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E984BF2C3064547A00FD7AD6"
-            BuildableName = "NetServices Toggle.app"
-            BlueprintName = "NetServices Toggle"
-            ReferencedContainer = "container:NetServices Toggle.xcodeproj">
+            BuildableName = "NetworkToggle.app"
+            BlueprintName = "NetworkToggle"
+            ReferencedContainer = "container:NetworkToggle.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
