@@ -1,42 +1,53 @@
 import Foundation
 
-enum ServiceState: String, Codable, Sendable {
-    case working      // enabled, interface active, has an IP
-    case notWorking   // enabled, but no link or no IP
-    case disabled     // disabled in network settings
+/// The status a network service shows to the user, everywhere in the app.
+/// This is the single source of truth for that text — both the menu bar and
+/// the Control Center control read `NetService.status` / `.title`, never
+/// their own separate logic, so the same service can't read differently in
+/// the two places.
+enum ServiceStatus {
+    case inactive            // disabled in Network settings
+    case activeConnecting    // just enabled; giving the interface a moment to get a link + IP
+    case activeNotConnected  // enabled, but no link or no IP (and not just-enabled anymore)
+    case activeConnected     // enabled, active link, real IP
 
     var title: String {
         switch self {
-        case .working: return "Active"
-        case .notWorking: return "Not Working"
-        case .disabled: return "Inactive"
+        case .inactive: return "Inactive"
+        case .activeConnecting: return "Connecting…"
+        case .activeNotConnected: return "Not Connected"
+        case .activeConnected: return "Connected"
         }
     }
 }
 
 struct NetService: Identifiable, Codable, Equatable, Sendable {
+    /// How long after enabling a service it stays `.activeConnecting` before
+    /// a missing link/IP is trusted as a real `.activeNotConnected`.
+    static let connectingGracePeriod: TimeInterval = 8
+
     var id: String { name }
     var order: Int
     var name: String
-    var port: String
     var device: String
     var enabled: Bool
 
-    var state: ServiceState = .notWorking
-    var linkStatus: String = "—"
-    var ip: String = "—"
-    var subnet: String = "—"
-    var router: String = "—"
-    var config: String = "—"
-    var ipv6: String = "—"
-    var mac: String = "—"
-    var dns: String = "—"
-    var searchDomains: String = "—"
-    var mtu: String = "—"
-    var media: String = "—"
+    /// The raw connectivity check (active link + a real, non-APIPA IP) — the
+    /// only network fact besides `enabled` that `status` needs.
+    var hasLinkAndIP: Bool = false
 
     /// Set right after the service is turned on; while this is in the future,
-    /// the UI shows "Connecting…" instead of a possibly-stale "Not Working"
-    /// (the interface can take a few seconds to get a link and an IP).
+    /// `status` reports `.activeConnecting` instead of a possibly-stale
+    /// `.activeNotConnected` (the interface can take a few seconds to get a
+    /// link and an IP).
     var connectingUntil: Date? = nil
+
+    /// The single computed status — see `ServiceStatus`. Everything that
+    /// needs to show or reason about a service's state goes through this,
+    /// never through `enabled` / `hasLinkAndIP` / `connectingUntil` directly.
+    var status: ServiceStatus {
+        guard enabled else { return .inactive }
+        if let until = connectingUntil, until > Date() { return .activeConnecting }
+        return hasLinkAndIP ? .activeConnected : .activeNotConnected
+    }
 }

@@ -30,26 +30,28 @@ struct NetworkToggleAppControl: ControlWidget {
     struct Provider: AppIntentControlValueProvider {
         func previewValue(configuration: ServiceConfiguration) -> Value {
             Value(name: configuration.service?.id ?? "Wi-Fi", isOn: true,
-                  status: "Working", symbol: "network")
+                  status: ServiceStatus.activeConnected.title, symbol: "network")
         }
 
         func currentValue(configuration: ServiceConfiguration) async throws -> Value {
-            let list = SnapshotStore.load()
+            // One call refreshes `enabled` and connectivity straight from the
+            // OS, so the control is correct even if the app isn't running to
+            // keep its snapshot current (and even if it has never run once).
             guard let id = configuration.service?.id,
-                  let s = list.first(where: { $0.name == id }) else {
+                  var s = liveService(named: id) else {
                 return Value(name: "Choose a service", isOn: false,
                              status: "Not configured", symbol: "network.slash")
             }
-            // The icon depends only on whether the service is enabled;
-            // whether it's actually working shows up in the status text.
-            var status = s.state.title
-            if s.state != .working, let until = s.connectingUntil, until > Date() {
-                // Just enabled — give the interface a few seconds to get a
-                // link and an IP before reporting "Not Working".
-                status = "Connecting…"
-            }
+            // `connectingUntil` is our own bookkeeping, not an OS fact, so it
+            // can only come from the snapshot — written the moment anyone
+            // (app or Control) toggles the service, so it doesn't go stale.
+            s.connectingUntil = SnapshotStore.load().first(where: { $0.name == id })?.connectingUntil
+
+            // The icon depends only on whether the service is enabled; the
+            // status text uses the same `status.title` the menu bar shows, so
+            // the same service never reads differently in the two places.
             let symbol = s.enabled ? "network" : "network.slash"
-            return Value(name: s.name, isOn: s.enabled, status: status, symbol: symbol)
+            return Value(name: s.name, isOn: s.enabled, status: s.status.title, symbol: symbol)
         }
     }
 }

@@ -9,7 +9,7 @@ struct NetworkToggleApp: App {
         MenuBarExtra {
             MenuContent().environmentObject(vm)
         } label: {
-            Image(systemName: vm.workingCount > 0 ? "network" : "network.slash")
+            Image(systemName: "network")
         }
         .menuBarExtraStyle(.menu)
 
@@ -33,6 +33,7 @@ struct MenuContent: View {
             Toggle(isOn: Binding(get: { s.enabled }, set: { vm.setEnabled(s, $0) })) {
                 rowLabel(for: s)
             }
+            .disabled(vm.pendingServices.contains(s.name))
         }
 
         if vm.helperStatus != .enabled {
@@ -58,24 +59,21 @@ struct MenuContent: View {
             .keyboardShortcut("q")
     }
 
-    private func statusText(_ s: NetService) -> String {
-        if vm.pendingServices.contains(s.name) { return "Updating…" }
-        switch s.state {
-        case .working: return "Connected"
-        case .notWorking: return "Not connected"
-        case .disabled: return "Disabled"
-        }
-    }
-
     /// A single `Text` (built from an `AttributedString`) with the service name
     /// in the normal color and the status suffix dimmed. Menu-bar items only
     /// render a single `Text` correctly — a layout container like `HStack`
     /// doesn't show up in a `MenuBarExtra`'s `.menu` style — so this replaces
     /// the deprecated `Text + Text` concatenation without losing the two-tone
     /// color.
+    ///
+    /// The status text itself comes from `NetService.status.title`, the same
+    /// property the Control Center control reads, so both surfaces always
+    /// agree on the same service's state. While a toggle is in flight the row
+    /// is just disabled (see above) rather than getting a separate "Updating…"
+    /// label — one less status variant to keep in sync.
     private func rowLabel(for s: NetService) -> Text {
         var name = AttributedString(s.name)
-        var status = AttributedString(" [\(statusText(s))]")
+        var status = AttributedString(" [\(s.status.title)]")
         status.foregroundColor = Color(nsColor: .tertiaryLabelColor)
         name += status
         return Text(name)

@@ -33,8 +33,6 @@ final class NetworkToggleViewModel: ObservableObject {
         }
     }
 
-    var workingCount: Int { services.filter { $0.state == .working }.count }
-
     func refresh() {
         Task { await refreshAsync() }
     }
