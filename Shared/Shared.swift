@@ -87,7 +87,7 @@ func liveService(named name: String) -> NetService? {
 }
 
 enum Shared {
-    static let appGroup = "group.com.pavelkozemirov.NetworkToggle"
+    static let appGroup = "group.app.pavelkozemirov.NetworkToggle"
     static let helperMachService = "app.pavelkozemirov.NetworkToggle.helper"
     static let helperPlistName = "app.pavelkozemirov.NetworkToggle.helper.plist"
     static let controlKind = "app.pavelkozemirov.NetworkToggle.ServiceControl"

@@ -2,16 +2,16 @@
 
 A macOS app that lists network services (from `networksetup -listnetworkserviceorder`), shows their status, and lets you turn them on/off from the menu bar and a Control Center. This is especially handy if you often switch between a wired Ethernet connection, a Wi-Fi network, a Personal Hotspot connection or phone USB connection.
 
-## Status logic (Active / Not Working / Inactive)
+## Status logic
 
-For each service, checked in this order:
+Each service has one of four states — the single source of truth read by both the menu bar and the Control Center:
 
-1. **Inactive** — the service is Active in Network settings (`networksetup -setnetworkserviceenabled`). No further checks
-2. **Link check** — `ifconfig <device>` must report `status: active` (or be `UP` with no `status` field, e.g. VPN interfaces).
-3. **IP check** — the service must have a real IPv4 address (not empty, not a `169.254.x.x` self-assigned APIPA address).
-4. **Active** if enabled + active link + real IP. Otherwise **Not Working**.
+1. **Inactive** — disabled in Network settings.
+2. **Connecting…** — just enabled; within a short grace period (8s) after `-setnetworkserviceenabled`, giving the interface time to get a link and an IP.
+3. **Not Connected** — enabled, past the grace period, but `ifconfig` shows no active link or no real (non-APIPA) IP.
+4. **Connected** — enabled, with an active link and a real IP.
 
-This only confirms local link + IP (L2/L3), not actual internet reachability — a service connected to a network with no internet access will still show as Working.
+This only confirms local link + IP (L2/L3), not actual internet reachability — a service connected to a network with no internet access will still show as Connected.
 
 ## Privileged helper
 
