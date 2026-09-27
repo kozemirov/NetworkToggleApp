@@ -19,8 +19,7 @@ final class NetworkToggleViewModel: ObservableObject {
 
     init() {
         helperStatus = helper.status
-        // Ask for the helper right away if it isn't approved yet, instead of
-        // waiting for the user to notice and click "Install Helper…".
+        // Ask for the helper right away if it isn't approved yet.
         if helperStatus != .enabled {
             registerHelper()
         }
@@ -37,8 +36,7 @@ final class NetworkToggleViewModel: ObservableObject {
         Task { await refreshAsync() }
     }
 
-    /// Same as `refresh()`, but awaitable so callers (like `setEnabled`) can wait
-    /// for the status to actually be up to date before clearing "loading…".
+    /// Awaitable version of `refresh()`, so callers can wait for the status to catch up.
     @discardableResult
     func refreshAsync() async -> Bool {
         helperStatus = helper.status
@@ -50,10 +48,7 @@ final class NetworkToggleViewModel: ObservableObject {
             NetworkToggleServiceCollector.collect()
         }.value
 
-        // The collector has no notion of "just enabled" — preserve each
-        // service's "still connecting" marker from the on-disk snapshot until
-        // it actually expires, otherwise a fresh poll could report
-        // "Not Working" for a moment before the interface's link/IP come up.
+        // Preserve each service's "still connecting" marker until it actually expires.
         let onDisk = SnapshotStore.load()
         let onDiskByName = Dictionary(uniqueKeysWithValues: onDisk.map { ($0.name, $0) })
         let result = collected.map { service -> NetService in
@@ -64,8 +59,7 @@ final class NetworkToggleViewModel: ObservableObject {
             return service
         }
 
-        // Also compare against the App Group file: the widget may have changed it,
-        // and then the Control needs to redraw even if nothing changed in memory.
+        // Also compare against the App Group file, since the widget may have changed it.
         if result != self.services || result != onDisk {
             self.services = result
             SnapshotStore.save(result)
@@ -81,17 +75,14 @@ final class NetworkToggleViewModel: ObservableObject {
         Task {
             do {
                 try await HelperClient.setEnabled(service.name, enabled: on)
-                // Mark it as "connecting" right away, same as the Control does,
-                // so all surfaces agree while the interface comes up.
+                // Mark it as "connecting" right away, same as the Control does.
                 SnapshotStore.patchEnabled(name: service.name, enabled: on)
                 errorMessage = nil
             } catch {
                 errorMessage = "Couldn't toggle \"\(service.name)\": \(error.localizedDescription)"
             }
             try? await Task.sleep(for: .seconds(1))
-            // Keep polling briefly until a refresh actually runs (skips ones that
-            // find the view model already mid-refresh) so "loading…" doesn't
-            // disappear before the real status has caught up.
+            // Keep polling briefly until a refresh actually runs, so "loading…" doesn't disappear early.
             while await refreshAsync() == false {
                 try? await Task.sleep(for: .milliseconds(300))
             }

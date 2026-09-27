@@ -1,10 +1,6 @@
 import Foundation
 
-/// The status a network service shows to the user, everywhere in the app.
-/// This is the single source of truth for that text — both the menu bar and
-/// the Control Center control read `NetService.status` / `.title`, never
-/// their own separate logic, so the same service can't read differently in
-/// the two places.
+/// The status shown everywhere in the app — the single source of truth for that text.
 enum ServiceStatus {
     case inactive            // disabled in Network settings
     case activeConnecting    // just enabled; giving the interface a moment to get a link + IP
@@ -22,8 +18,7 @@ enum ServiceStatus {
 }
 
 struct NetService: Identifiable, Codable, Equatable, Sendable {
-    /// How long after enabling a service it stays `.activeConnecting` before
-    /// a missing link/IP is trusted as a real `.activeNotConnected`.
+    /// How long a service stays `.activeConnecting` before a missing link/IP counts as real.
     static let connectingGracePeriod: TimeInterval = 8
 
     var id: String { name }
@@ -32,19 +27,13 @@ struct NetService: Identifiable, Codable, Equatable, Sendable {
     var device: String
     var enabled: Bool
 
-    /// The raw connectivity check (active link + a real, non-APIPA IP) — the
-    /// only network fact besides `enabled` that `status` needs.
+    /// The raw connectivity check (active link + a real, non-APIPA IP).
     var hasLinkAndIP: Bool = false
 
-    /// Set right after the service is turned on; while this is in the future,
-    /// `status` reports `.activeConnecting` instead of a possibly-stale
-    /// `.activeNotConnected` (the interface can take a few seconds to get a
-    /// link and an IP).
+    /// Set right after enabling; while in the future, `status` reports `.activeConnecting`.
     var connectingUntil: Date? = nil
 
-    /// The single computed status — see `ServiceStatus`. Everything that
-    /// needs to show or reason about a service's state goes through this,
-    /// never through `enabled` / `hasLinkAndIP` / `connectingUntil` directly.
+    /// The single computed status everything should read instead of the raw fields.
     var status: ServiceStatus {
         guard enabled else { return .inactive }
         if let until = connectingUntil, until > Date() { return .activeConnecting }

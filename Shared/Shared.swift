@@ -1,7 +1,6 @@
 import Foundation
 
-// Shared constants, App Group data exchange, and the XPC client.
-// This file is part of all three targets: app, widget, and helper.
+// Shared constants, App Group data exchange, and the XPC client (used by all three targets).
 
 func runTool(_ path: String, _ args: [String]) -> String {
     let p = Process()
@@ -23,14 +22,7 @@ func networksetup(_ args: [String]) -> String {
     runTool("/usr/sbin/networksetup", args)
 }
 
-/// Parses `networksetup -listnetworkserviceorder` into services with `order`
-/// / `name` / `device` / `enabled` filled in (not yet connectivity-checked).
-/// The one place that understands this text format — both the app's bulk
-/// collector and `liveService(named:)` below build on it, instead of each
-/// re-parsing the listing their own way.
-///
-/// (1) Wi-Fi
-/// (Hardware Port: Wi-Fi, Device: en0)
+/// Parses `networksetup -listnetworkserviceorder` into services (order/name/device/enabled).
 func parseServiceOrder(_ text: String) -> [NetService] {
     var result: [NetService] = []
     let lines = text.components(separatedBy: "\n")
@@ -62,11 +54,7 @@ func parseServiceOrder(_ text: String) -> [NetService] {
     return result
 }
 
-/// Active link + a real (non-APIPA) IPv4 address for one device — the only
-/// network fact `NetService.status` needs beyond `enabled`. A single
-/// `ifconfig` call, cheap enough for the Control Center extension to call
-/// fresh on every request, so a service's status there is never stale just
-/// because the main app isn't currently running.
+/// Active link + a real (non-APIPA) IPv4 address for one device, via a single `ifconfig` call.
 func hasLinkAndIP(device: String) -> Bool {
     guard !device.isEmpty else { return false }
     let ifc = runTool("/sbin/ifconfig", [device])
@@ -90,12 +78,7 @@ func hasLinkAndIP(device: String) -> Bool {
     return ip != "—" && !ip.hasPrefix("169.254") && active
 }
 
-/// The single function that refreshes everything the OS itself knows about
-/// one named service — `enabled` and connectivity — in one call. This is
-/// what the Control Center extension calls instead of trusting the app's
-/// snapshot, so it works correctly even if the app has never run. (The
-/// snapshot is still consulted separately for `connectingUntil`, since that's
-/// our own bookkeeping, not something the OS can tell us.)
+/// Refreshes everything the OS knows about one named service — `enabled` and connectivity — in one call.
 func liveService(named name: String) -> NetService? {
     guard var service = parseServiceOrder(networksetup(["-listnetworkserviceorder"]))
         .first(where: { $0.name == name }) else { return nil }
@@ -133,19 +116,14 @@ enum SnapshotStore {
         try? data.write(to: url, options: .atomic)
     }
 
-    /// Reflect a toggle right away, without waiting for the app's next poll.
-    /// If the snapshot doesn't have this service yet — e.g. the app has
-    /// never run and the toggle came from Control Center — builds the entry
-    /// from `liveService(named:)` instead of silently doing nothing, so
-    /// `connectingUntil` still gets recorded.
+    /// Reflects a toggle right away; builds a fresh entry via `liveService` if the snapshot doesn't have it yet.
     static func patchEnabled(name: String, enabled: Bool) {
         var list = load()
         let connectingUntil = enabled ? Date().addingTimeInterval(NetService.connectingGracePeriod) : nil
 
         if let i = list.firstIndex(where: { $0.name == name }) {
             list[i].enabled = enabled
-            // `status` already reports `.inactive` once `enabled` is false —
-            // no separate field to update there.
+            // `status` already reports `.inactive` once `enabled` is false.
             list[i].connectingUntil = connectingUntil
         } else if var service = liveService(named: name) {
             service.enabled = enabled

@@ -34,22 +34,16 @@ struct NetworkToggleAppControl: ControlWidget {
         }
 
         func currentValue(configuration: ServiceConfiguration) async throws -> Value {
-            // One call refreshes `enabled` and connectivity straight from the
-            // OS, so the control is correct even if the app isn't running to
-            // keep its snapshot current (and even if it has never run once).
+            // One call refreshes `enabled` and connectivity straight from the OS.
             guard let id = configuration.service?.id,
                   var s = liveService(named: id) else {
                 return Value(name: "Choose a service", isOn: false,
                              status: "Not configured", symbol: "network.slash")
             }
-            // `connectingUntil` is our own bookkeeping, not an OS fact, so it
-            // can only come from the snapshot — written the moment anyone
-            // (app or Control) toggles the service, so it doesn't go stale.
+            // `connectingUntil` is our own bookkeeping, so it comes from the snapshot.
             s.connectingUntil = SnapshotStore.load().first(where: { $0.name == id })?.connectingUntil
 
-            // The icon depends only on whether the service is enabled; the
-            // status text uses the same `status.title` the menu bar shows, so
-            // the same service never reads differently in the two places.
+            // Icon depends on `enabled`; status text uses the same `status.title` as the menu bar.
             let symbol = s.enabled ? "network" : "network.slash"
             return Value(name: s.name, isOn: s.enabled, status: s.status.title, symbol: symbol)
         }

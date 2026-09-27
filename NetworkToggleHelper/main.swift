@@ -1,7 +1,6 @@
 import Foundation
 
-// Privileged helper (launch daemon, runs as root).
-// Does one thing: turns a network service on/off via networksetup.
+// Privileged helper (launch daemon, root): turns a network service on/off via networksetup.
 
 final class Helper: NSObject, NSXPCListenerDelegate, HelperProtocol {
 

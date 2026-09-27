@@ -59,18 +59,7 @@ struct MenuContent: View {
             .keyboardShortcut("q")
     }
 
-    /// A single `Text` (built from an `AttributedString`) with the service name
-    /// in the normal color and the status suffix dimmed. Menu-bar items only
-    /// render a single `Text` correctly — a layout container like `HStack`
-    /// doesn't show up in a `MenuBarExtra`'s `.menu` style — so this replaces
-    /// the deprecated `Text + Text` concatenation without losing the two-tone
-    /// color.
-    ///
-    /// The status text itself comes from `NetService.status.title`, the same
-    /// property the Control Center control reads, so both surfaces always
-    /// agree on the same service's state. While a toggle is in flight the row
-    /// is just disabled (see above) rather than getting a separate "Updating…"
-    /// label — one less status variant to keep in sync.
+    /// One `Text` with the name and a dimmed status suffix from `NetService.status.title`.
     private func rowLabel(for s: NetService) -> Text {
         var name = AttributedString(s.name)
         var status = AttributedString(" [\(s.status.title)]")
