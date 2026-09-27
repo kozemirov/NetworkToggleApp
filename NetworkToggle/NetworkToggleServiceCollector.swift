@@ -5,7 +5,7 @@ import Foundation
 // Shared.swift so the Control Center extension can reuse them too — see
 // `liveService(named:)`.
 
-enum NetworkServiceCollector {
+enum NetworkToggleServiceCollector {
     static func collect() -> [NetService] {
         var services = parseServiceOrder(networksetup(["-listnetworkserviceorder"]))
         for i in services.indices {

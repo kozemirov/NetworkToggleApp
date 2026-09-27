@@ -47,7 +47,7 @@ final class NetworkToggleViewModel: ObservableObject {
         if loading { return false }
         loading = true
         let collected = await Task.detached(priority: .userInitiated) {
-            NetworkServiceCollector.collect()
+            NetworkToggleServiceCollector.collect()
         }.value
 
         // The collector has no notion of "just enabled" — preserve each
