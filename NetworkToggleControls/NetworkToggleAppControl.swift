@@ -30,7 +30,7 @@ struct NetworkToggleAppControl: ControlWidget {
     struct Provider: AppIntentControlValueProvider {
         func previewValue(configuration: ServiceConfiguration) -> Value {
             Value(name: configuration.service?.id ?? "Wi-Fi", isOn: true,
-                  status: ServiceStatus.activeConnected.title, symbol: "network")
+                  status: "Active", symbol: "network")
         }
 
         func currentValue(configuration: ServiceConfiguration) async throws -> Value {
@@ -43,9 +43,8 @@ struct NetworkToggleAppControl: ControlWidget {
             // `connectingUntil` is our own bookkeeping, so it comes from the snapshot.
             s.connectingUntil = SnapshotStore.load().first(where: { $0.name == id })?.connectingUntil
 
-            // Icon depends on `enabled`; status text uses the same `status.title` as the menu bar.
             let symbol = s.enabled ? "network" : "network.slash"
-            return Value(name: s.name, isOn: s.enabled, status: s.status.title, symbol: symbol)
+            return Value(name: s.name, isOn: s.enabled, status: s.status.simpleTitle, symbol: symbol)
         }
     }
 }

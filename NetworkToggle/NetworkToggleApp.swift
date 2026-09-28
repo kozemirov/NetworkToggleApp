@@ -14,7 +14,7 @@ struct NetworkToggleApp: App {
         .menuBarExtraStyle(.menu)
 
         Window("About", id: "about") {
-            AboutView()
+            AboutView().environmentObject(vm)
         }
         .windowResizability(.contentSize)
     }

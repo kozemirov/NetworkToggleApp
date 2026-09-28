@@ -24,12 +24,12 @@ final class NetworkToggleViewModel: ObservableObject {
             registerHelper()
         }
         refresh()
-        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] _ in
+        let t = Timer(timeInterval: 5, repeats: true) { [weak self] _ in
             guard let self else { return }
-            Task { @MainActor in
-                self.refresh()
-            }
+            Task { @MainActor in self.refresh() }
         }
+        RunLoop.main.add(t, forMode: .common)
+        timer = t
     }
 
     func refresh() {
@@ -82,9 +82,12 @@ final class NetworkToggleViewModel: ObservableObject {
                 errorMessage = "Couldn't toggle \"\(service.name)\": \(error.localizedDescription)"
             }
             try? await Task.sleep(for: .seconds(1))
-            // Keep polling briefly until a refresh actually runs, so "loading…" doesn't disappear early.
-            while await refreshAsync() == false {
-                try? await Task.sleep(for: .milliseconds(300))
+            // Poll every second until status resolves or the grace period ends.
+            for _ in 0..<Int(NetService.connectingGracePeriod) {
+                await refreshAsync()
+                if let s = services.first(where: { $0.name == service.name }),
+                   s.status != .activeConnecting { break }
+                try? await Task.sleep(for: .seconds(1))
             }
             pendingServices.remove(service.name)
         }

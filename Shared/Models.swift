@@ -15,6 +15,13 @@ enum ServiceStatus {
         case .activeConnected: return "Connected"
         }
     }
+
+    var simpleTitle: String {
+        switch self {
+        case .inactive: return "Inactive"
+        default: return "Active"
+        }
+    }
 }
 
 struct NetService: Identifiable, Codable, Equatable, Sendable {
@@ -36,7 +43,8 @@ struct NetService: Identifiable, Codable, Equatable, Sendable {
     /// The single computed status everything should read instead of the raw fields.
     var status: ServiceStatus {
         guard enabled else { return .inactive }
+        if hasLinkAndIP { return .activeConnected }
         if let until = connectingUntil, until > Date() { return .activeConnecting }
-        return hasLinkAndIP ? .activeConnected : .activeNotConnected
+        return .activeNotConnected
     }
 }
