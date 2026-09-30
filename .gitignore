@@ -24,3 +24,7 @@ Package.resolved
 # vim
 *.swp
 *.swo
+
+# DMG packaging artifacts (build inputs/outputs, not source)
+packaging/build/
+*.dmg
