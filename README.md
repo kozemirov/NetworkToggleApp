@@ -1,6 +1,24 @@
-# Network Toggle
+<p align="center">
+  <img src="docs/logo.png" width="128" alt="Network Toggle logo">
+</p>
 
-A macOS app that lists network services (from `networksetup -listnetworkserviceorder`), shows their status, and lets you turn them on/off from the menu bar and a Control Center. This is especially handy if you often switch between a wired Ethernet connection, a Wi-Fi network, a Personal Hotspot connection or phone USB connection.
+<h1 align="center">Network Toggle</h1>
+
+<p align="center">
+  A macOS app that lists network services (from <code>networksetup -listnetworkserviceorder</code>), shows their status, and lets you turn them on/off from the menu bar and a Control Center. This is especially handy if you often switch between a wired Ethernet connection, a Wi-Fi network, a Personal Hotspot connection or phone USB connection.
+</p>
+
+<p align="center">
+  <img src="docs/preview.gif" width="640" alt="Network Toggle preview">
+</p>
+
+<!--
+  Логотип: docs/logo.png (квадратный, например 512x512 — то же изображение, что и AppIcon, подойдёт).
+  Превью: docs/preview.gif — GIF надёжнее всего рендерится и в GitHub, и в GitLab, и на npm/сторонних зеркалах.
+  Если хочешь именно .mp4, GitHub умеет встраивать <video> только через файлы, загруженные
+  прямо в веб-редакторе README (drag-and-drop в текстовое поле на github.com) — обычный файл
+  из репозитория так не воспроизведётся, поэтому GIF — более портируемый вариант.
+-->
 
 ## Status logic
 
