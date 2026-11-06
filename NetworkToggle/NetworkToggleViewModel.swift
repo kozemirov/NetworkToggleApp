@@ -19,11 +19,6 @@ final class NetworkToggleViewModel: ObservableObject {
 
     init() {
         helperStatus = helper.status
-        // Always (re-)register on launch, per Apple's own recommendation.
-        // SMAppService.register() is a safe no-op when already enabled, and it's
-        // also how a stale registration (e.g. a launch-constraints record left
-        // invalid by a macOS upgrade) gets silently repaired without the user
-        // having to do anything.
         registerHelper()
         refresh()
         let t = Timer(timeInterval: 5, repeats: true) { [weak self] _ in

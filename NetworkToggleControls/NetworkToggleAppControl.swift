@@ -25,6 +25,7 @@ struct NetworkToggleAppControl: ControlWidget {
         }
         .displayName("Network Service")
         .description("Shows a network service's status and turns it on or off.")
+        .promptsForUserConfiguration()
     }
 
     struct Provider: AppIntentControlValueProvider {
